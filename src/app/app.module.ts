@@ -3,14 +3,37 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// import {
+//   Ng6SocialButtonModule,
+//   SocialServiceConfig
+// } from "ng6-social-button"
+
+import {
+  Angular6SocialButtonModule,
+  SocialServiceConfig
+} from "angular6-social-button";
+
+// Configs
+export function getAuthServiceConfigs() {
+  let config = new SocialServiceConfig()
+      .addFacebook("1665468547084549")
+      .addGoogle("414646750345-q77prfo2b7s87ki0di3i1jv5t3uh91ok.apps.googleusercontent.com");
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    Angular6SocialButtonModule
   ],
-  providers: [],
+  providers: [ {
+    provide: SocialServiceConfig,
+    useFactory: getAuthServiceConfigs
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

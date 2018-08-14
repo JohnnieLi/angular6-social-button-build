@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular6-social-button": [
+        "dist/angular6-social-button"
+      ],
+      "angular6-social-button/*": [
+        "dist/angular6-social-button/*"
+      ]
+    }
   }
 }
