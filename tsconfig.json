@@ -23,6 +23,12 @@
       ],
       "angular6-social-button/*": [
         "dist/angular6-social-button/*"
+      ],
+      "ng6-social-button": [
+        "dist/ng6-social-button"
+      ],
+      "ng6-social-button/*": [
+        "dist/ng6-social-button/*"
       ]
     }
   }
