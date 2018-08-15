@@ -1,29 +1,29 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {SocialService} from 'ng6-social-button';
 // import {
 //   SocialService
 // } from 'ng6-social-button'
-
-import {
-  SocialService
-} from "angular6-social-button"
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular6-social-button';
-  constructor(private socialAuthService: SocialService){}
+    title = 'Angular6-social-button';
+    shareObj = {};
 
-  signOut(){
-    if(this.socialAuthService.isSocialLoggedIn()){
-        this.socialAuthService.signOut().catch((err)=>{
-
-        });
+    constructor(private socialAuthService: SocialService) {
     }
- }
 
- getSocialUser(event){
-     console.log(event);
- }
+    signOut() {
+        if (this.socialAuthService.isSocialLoggedIn()) {
+            this.socialAuthService.signOut().catch((err) => {
+
+            });
+        }
+    }
+
+    getSocialUser(event) {
+        console.log(event);
+    }
 }

@@ -1,11 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+	<h1>
+		Welcome to {{ title }}!
+	</h1>
 
-  <facebook-login-button  (socialUser)="getSocialUser($event)"></facebook-login-button>
-<facebook-share-button [share]="shareObj" ></facebook-share-button>
-<google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
-<button (click)="signOut()">SOCIAL LOGOUT</button>
+	<facebook-login-button (socialUser)="getSocialUser($event)"></facebook-login-button>
+	<facebook-share-button [share]="shareObj"></facebook-share-button>
+	<google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
+	<linkedin-login-button (socialUser)="getSocialUser($event)"></linkedin-login-button>
+	<button (click)="signOut()">SOCIAL LOGOUT</button>
 

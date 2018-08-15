@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 
-import {Observable} from 'rxjs';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 import {LoginProvider} from './entities/loginProvider';
 import {FacebookLoginProvider} from './providers/facebookProvider';
 import {GoogleLoginProvider} from './providers/googleProvider';
+import {LinkedinLoginProvider} from './providers/linkedinProvider';
 
 import {SocialUser} from './entities/user';
 
@@ -13,19 +13,20 @@ export interface SocialServiceConfigItem {
     provider: LoginProvider;
 }
 
+
 export class SocialServiceConfig {
     private providers: Map<string, LoginProvider> = new Map<string, LoginProvider>();
 
     constructor(providers?: SocialServiceConfigItem[]) {
         if (providers) {
             for (let i = 0; i < providers.length; i++) {
-                let element = providers[i];
+                const element = providers[i];
                 this.providers.set(element.provider.TYPE, element.provider);
             }
         }
     }
 
-    getProviders(){
+    getProviders() {
         return this.providers;
     }
 
@@ -36,13 +37,18 @@ export class SocialServiceConfig {
 
     }
 
-    addFacebook(clientId: string):SocialServiceConfig {
+    addFacebook(clientId: string): SocialServiceConfig {
         this.addProvider(new FacebookLoginProvider(clientId));
         return this;
     }
 
-    addGoogle(clientId: string):SocialServiceConfig  {
+    addGoogle(clientId: string): SocialServiceConfig {
         this.addProvider(new GoogleLoginProvider(clientId));
+        return this;
+    }
+
+    addLinkedIn(clientId: string): SocialServiceConfig {
+        this.addProvider(new LinkedinLoginProvider(clientId));
         return this;
     }
 }
@@ -77,16 +83,16 @@ export class SocialService {
         });
     }
 
-    isSocialLoggedIn(){
+    isSocialLoggedIn() {
         console.log(this._user);
-        return (this._user != null)
+        return (this._user != null);
     }
 
-    facebookSharing(share?:any){
+    facebookSharing(share?: any) {
         return new Promise((resolve, reject) => {
             let providerObject = this.providers.get('facebook');
             if (providerObject) {
-                providerObject.sharing(share).then(()=>{
+                providerObject.sharing(share).then(() => {
                     resolve(true);
                 });
             } else {
@@ -104,9 +110,9 @@ export class SocialService {
                     resolve(user);
                     this._user = user;
                     this._authState.next(user);
-                }).catch((err)=>{
+                }).catch((err) => {
                     reject(SocialService.USER_POPUP_CLOSE);
-                })
+                });
             } else {
                 reject(SocialService.LOGIN_PROVIDER_NOT_FOUND);
             }

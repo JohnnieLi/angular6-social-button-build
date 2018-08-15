@@ -3,16 +3,16 @@ import {SocialService} from '../social.service';
 import {SocialUser} from '../entities';
 
 @Component({
-    selector: 'google-login-button',
+    selector: 'linkedin-login-button',
     template: `
-		<button class="btn-block loginBtn --google"
+		<button class="btn-block loginBtn --linkedin"
 		        (click)="socialSignIn()" type="button">
-			Login with Google
+			Login with LinkedIn
 		</button>
     `, styleUrls: ['./buttons.css'],
 
 })
-export class GoogleLoginButton implements OnInit {
+export class LinkedinLoginButton implements OnInit {
 
     @Input() size: string;
     @Input() scopes: [string];
@@ -26,7 +26,7 @@ export class GoogleLoginButton implements OnInit {
     }
 
     public socialSignIn() {
-        this.socialAuthService.signIn('google', this.scopes).then(
+        this.socialAuthService.signIn('linkedin', this.scopes).then(
             (userData) => {
                 this.socialUser.emit(userData);
             }
