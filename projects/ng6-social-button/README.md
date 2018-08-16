@@ -11,12 +11,13 @@ Built by using Angular6 **ng generate library**
 ### Scope
 1. FaceBook Login/Share buttons
 2. Google Login button
+3. LinkedIn Login/Share buttons
 3. Other(weChat) buttons are coming soon
 4. ...
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/16695419/44096478-59b74f8a-9fa9-11e8-8d6e-f3fbbc425f3b.gif)
 
-![social](https://user-images.githubusercontent.com/16695419/44096500-673bd716-9fa9-11e8-9089-9410e6219cd7.PNG)
+![screen shot 2018-08-15 at 9 15 21 pm](https://user-images.githubusercontent.com/16695419/44181562-600e6d00-a0d0-11e8-9dd1-a3fd6e440f9b.png)
 
 ### Get started
 
@@ -42,7 +43,8 @@ import {
 export function getAuthServiceConfigs() {
     let config = new SocialServiceConfig()
         .addFacebook("Your-Facebook-app-id")
-        .addGoogle("Your-Google-Client-Id");
+        .addGoogle("Your-Google-Client-Id")
+        .addLinkedIn("Your-LinkedIn-Client-Id");
     return config;
 }
 
@@ -153,6 +155,10 @@ export class SocialComponent {
 
 <google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
 
+<linkedin-login-button (socialUser)="getSocialUser($event)"></linkedin-login-button>
+
+<linkedin-share-button></linkedin-share-button>
+
 <button (click)="signOut()">SOCIAL LOGOUT</button>
 ...
 ```
@@ -227,7 +233,7 @@ export class SocialComponent {
 <button (click)="facebookSharing(shareObj)">Facebook Share</button>  
 
 <button (click)="socialSignIn('google')">Signin in with Google</button>  
-
+	
 <button (click)="signOut()">SOCIAL LOGOUT</button>
 ...
 ```
@@ -244,7 +250,7 @@ export class SocialComponent {
 | Property    |      Description                 |  Type                     |   Default               |
 |-------------|:--------------------------------:|--------------------------:|------------------------:|
 | [share]     |  social share object             |   object                  |     facebook:{href:Current_URL, hashtag: null} |
-|             |                                  |                           |     -     |
+|             |                                  |                           |     linkedin:{href:Current_URL}    |
 
 
 ## SocialUser Object API
@@ -272,3 +278,13 @@ You need to create your own app by going to [Facebook Developers](https://develo
 Follow this official documentation on [how to Create a Google API Console project and client ID](https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin).
 
 
+### Angular Twitter sharing, using API directly
+```
+<a class="share-btn share-btn-branded share-btn-twitter"
+	   href="https://twitter.com/share"
+	   [attr.data-text]="text" [attr.data-url]="url" 
+	   title="Share on Twitter">
+		<span class="share-btn-icon"></span>
+		<span class="share-btn-text">Twitter</span>
+</a>
+```

@@ -73,13 +73,13 @@ export class FacebookLoginProvider extends BaseLoginProviderImpl {
 
   sharing(share?:any): Promise<any>{
       return new Promise((resolve, reject) => {
-          console.log("sharing", share);
             FB.ui({
                 method: 'share',
                 href: share.href,
                 hashtag: (share.hashtag && share.hashtag.indexOf('#')>=0)?share.hashtag :  null
             }, function(response){
               console.log(response);
+              resolve();
             });
       });
   }

@@ -1,4 +1,4 @@
-import { SocialUser, LoginProviderClass, LinkedInResponse } from '../entities/user';
+import {SocialUser, LoginProviderClass, LinkedInResponse} from '../entities/user';
 import {BaseLoginProviderImpl} from '../entities/baseLoginProviderImpl';
 
 declare let IN: any;
@@ -29,7 +29,7 @@ export class LinkedinLoginProvider extends BaseLoginProviderImpl {
                     if (IN.User.isAuthorized()) {
                         IN.API.Raw(
                             '/people/~:(id,first-name,last-name,email-address,picture-url)'
-                        ).result( (res: LinkedInResponse) => {
+                        ).result((res: LinkedInResponse) => {
                             resolve(this.drawUser(res));
                         });
                     }
@@ -58,8 +58,8 @@ export class LinkedinLoginProvider extends BaseLoginProviderImpl {
 
     signIn(): Promise<SocialUser> {
         return new Promise((resolve, reject) => {
-            IN.User.authorize( () => {
-                IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res) => {
+            IN.User.authorize(() => {
+                IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result((res) => {
                     console.log('linkedin', res);
                     resolve(this.drawUser(res));
                 });
@@ -79,7 +79,24 @@ export class LinkedinLoginProvider extends BaseLoginProviderImpl {
 
 
     sharing(share?: any): Promise<any> {
-        return undefined;
+        return new Promise((resolve, reject) => {
+            const payload = {
+                'comment': share ? share.comment : '',
+                'visibility': {
+                    'code': 'anyone'
+                }
+            };
+            IN.API.Raw('/people/~/shares?format=json')
+                .method('POST')
+                .body(JSON.stringify(payload))
+                .result(data => {
+                    console.log('linkedin share', data);
+                    resolve();
+                })
+                .error(onError => {
+                    console.log('linkedin', onError);
+                });
+        });
     }
 
 }

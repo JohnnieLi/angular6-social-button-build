@@ -51,6 +51,7 @@ export class SocialServiceConfig {
         this.addProvider(new LinkedinLoginProvider(clientId));
         return this;
     }
+
 }
 
 @Injectable({
@@ -84,13 +85,13 @@ export class SocialService {
     }
 
     isSocialLoggedIn() {
-        console.log(this._user);
         return (this._user != null);
     }
 
-    facebookSharing(share?: any) {
+
+    sharing(providerType: string, share?: any) {
         return new Promise((resolve, reject) => {
-            let providerObject = this.providers.get('facebook');
+            let providerObject = this.providers.get(providerType);
             if (providerObject) {
                 providerObject.sharing(share).then(() => {
                     resolve(true);
@@ -100,6 +101,14 @@ export class SocialService {
             }
         });
     }
+
+    facebookSharing(share?: any) {
+        return this.sharing('facebook', share);
+    }
+
+    // linkedinSharing(share?: any) {
+    //     return this.sharing('linkedin', share);
+    // }
 
     signIn(providerType: string, scopes?: [string]): Promise<SocialUser> {
         return new Promise((resolve, reject) => {
