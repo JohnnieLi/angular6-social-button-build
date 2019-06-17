@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnnieLi/ng6-social-button.git"
+    "url": "https://github.com/JohnnieLi/ngx-social-button.git"
   },
-  "homepage": "https://github.com/JohnnieLi/ng6-social-button.git#readme",
+  "homepage": "https://github.com/JohnnieLi/ngx-social-button.git#readme",
   "bugs": {
-    "url": "https://github.com/JohnnieLi/ng6-social-button.git/issues"
+    "url": "https://github.com/JohnnieLi/ngx-social-button.git/issues"
   },
   "keywords": [
     "angular",
