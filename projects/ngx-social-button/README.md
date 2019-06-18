@@ -149,7 +149,7 @@ export class SocialComponent {
 
 ```html
 ...
-<facebook-login-button  (socialUser)="getSocialUser($event)"></facebook-login-button>
+<facebook-login-button  [style]="round" (socialUser)="getSocialUser($event)"></facebook-login-button>
 
 <facebook-share-button [share]="shareObj" ></facebook-share-button>
 
@@ -242,9 +242,9 @@ export class SocialComponent {
 ## Login Buttons API
 | Property    |      Description                 |  Type                     |   Default               |
 |-------------|:--------------------------------:|--------------------------:|------------------------:|
-| (socialUser)|  trigger when signin done        | EventEmitter<{SocialUser}>|     -     |
+| (socialUser)|  trigger when signin done        | EventEmitter<{SocialUser}>|     -                   |
 | [scopes]    |  social custom scopes            |   [string]                |     facebook:['email', 'public_profile'] |
-|             |                                  |                           |     -     |
+|  [style] ?  |  change button style if be:'round'    |   [string]                |     -                   |
 
 ## Share Buttons API
 | Property    |      Description                 |  Type                     |   Default               |
