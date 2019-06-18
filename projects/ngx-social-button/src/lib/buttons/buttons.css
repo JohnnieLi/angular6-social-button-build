@@ -117,3 +117,26 @@
 }
 
 
+
+.social-btn{
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+.social-btn .facebook {
+     background-image: url("./social-pics/facebook.png");
+ }
+
+.social-btn .google {
+     background-image: url("./social-pics/google.png");
+ }
+
+.social-btn .wechat {
+     background-image: url("./social-pics/wechat.png");
+ }
+
+

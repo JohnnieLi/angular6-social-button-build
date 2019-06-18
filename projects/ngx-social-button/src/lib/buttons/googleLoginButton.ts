@@ -5,7 +5,7 @@ import {SocialUser} from '../entities';
 @Component({
     selector: 'google-login-button',
     template: `
-		<button class="btn-block loginBtn --google"
+		<button [className]="style == 'round' ? 'social-btn google' : 'button btn-block loginBtn --google'"
 		        (click)="socialSignIn()" type="button">
 			Login with Google
 		</button>
@@ -15,6 +15,7 @@ import {SocialUser} from '../entities';
 export class GoogleLoginButton implements OnInit {
 
     @Input() size: string;
+    @Input() style: string;
     @Input() scopes: [string];
     @Output() socialUser = new EventEmitter<SocialUser>();
 

@@ -4,7 +4,7 @@ import { SocialUser } from '../entities';
 @Component({
   selector: 'facebook-login-button',
   template: `
-      <button class="button btn-block loginBtn --facebook" 
+      <button [className]="style == 'round' ? 'social-btn facebook' : 'button btn-block loginBtn --facebook'"
               (click)="socialSignIn()" type="button">
           Login with Facebook</button>
   `,
@@ -13,6 +13,7 @@ import { SocialUser } from '../entities';
 export class FacebookLoginButton implements OnInit {
 
   @Input() size: string;
+  @Input() style: string;
   @Input() scopes: [string];
   @Output() socialUser = new EventEmitter<SocialUser>();
 
