@@ -4,14 +4,37 @@
 		Welcome to {{ title }}!
 	</h1>
 
+
+	<h4>Login Buttons</h4>
+
 	<facebook-login-button (socialUser)="getSocialUser($event)"></facebook-login-button>
-	<facebook-share-button [share]="shareObj"></facebook-share-button>
+
+	<small> Round Style: </small>
+	<facebook-login-button  [style]="'round'" (socialUser)="getSocialUser($event)"></facebook-login-button>
+
+
 
 	<br>
 	<google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
+
+	<small> Round Style: </small>
+	<google-login-button [style]="'round'" (socialUser)="getSocialUser($event)"></google-login-button>
+
 	<br>
 	<linkedin-login-button (socialUser)="getSocialUser($event)"></linkedin-login-button>
-	<linkedin-share-button></linkedin-share-button>
+
+	<small> Round Style: </small>
+	<linkedin-login-button [style]="'round'"  (socialUser)="getSocialUser($event)"></linkedin-login-button>
+
+	<br>
 	<br>
 	<button (click)="signOut()">SOCIAL LOGOUT</button>
 
+	<br>
+	<br>
+	<h4>Share Buttons</h4>
+	<br>
+
+	<facebook-share-button [share]="shareObj"></facebook-share-button>
+
+	<linkedin-share-button></linkedin-share-button>

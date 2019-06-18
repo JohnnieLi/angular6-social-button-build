@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
-import {Ng6SocialButtonModule, SocialServiceConfig} from 'ng6-social-button';
+import {NgxSocialButtonModule, SocialServiceConfig} from 'ngx-social-button';
 
 // import {
 //   Angular6SocialButtonModule,
@@ -23,7 +23,7 @@ export function getAuthServiceConfigs() {
         AppComponent
     ],
     imports: [
-        BrowserModule, Ng6SocialButtonModule
+        BrowserModule, NgxSocialButtonModule
     ],
     providers: [{
         provide: SocialServiceConfig,

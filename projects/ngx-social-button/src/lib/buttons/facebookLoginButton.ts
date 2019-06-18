@@ -4,15 +4,16 @@ import { SocialUser } from '../entities';
 @Component({
   selector: 'facebook-login-button',
   template: `
-      <button [className]="style == 'round' ? 'social-btn facebook' : 'button btn-block loginBtn --facebook'"
+      <button [className]="style == 'round' ? 'social-btn facebook ' : 'button btn-block loginBtn --facebook '"
               (click)="socialSignIn()" type="button">
-          Login with Facebook</button>
+          {{style == 'round' ? '': text ? text : 'Login with Facebook'}}</button>
   `,
     styleUrls: ['./buttons.css'],
 })
 export class FacebookLoginButton implements OnInit {
 
   @Input() size: string;
+  @Input() text: string;
   @Input() style: string;
   @Input() scopes: [string];
   @Output() socialUser = new EventEmitter<SocialUser>();

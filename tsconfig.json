@@ -29,6 +29,12 @@
       ],
       "ng6-social-button/*": [
         "dist/ng6-social-button/*"
+      ],
+      "ngx-social-button": [
+        "dist/ngx-social-button"
+      ],
+      "ngx-social-button/*": [
+        "dist/ngx-social-button/*"
       ]
     }
   }

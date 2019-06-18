@@ -17,7 +17,7 @@ Built by using Angular6 **ng generate library**
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/16695419/44096478-59b74f8a-9fa9-11e8-8d6e-f3fbbc425f3b.gif)
 
-![screen shot 2018-08-15 at 9 15 21 pm](https://user-images.githubusercontent.com/16695419/44181562-600e6d00-a0d0-11e8-9dd1-a3fd6e440f9b.png)
+![screen shot 2018-08-15 at 9 15 21 pm](https://raw.githubusercontent.com/JohnnieLi/ngx-social-button/master/assets/round-style.PNG)
 
 ### Get started
 
@@ -149,7 +149,7 @@ export class SocialComponent {
 
 ```html
 ...
-<facebook-login-button  [style]="round" (socialUser)="getSocialUser($event)"></facebook-login-button>
+<facebook-login-button  [style]="'round'" (socialUser)="getSocialUser($event)"></facebook-login-button>
 
 <facebook-share-button [share]="shareObj" ></facebook-share-button>
 

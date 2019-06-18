@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SocialService} from 'ng6-social-button';
+import {SocialService} from 'ngx-social-button';
 // import {
 //   SocialService
 // } from 'ng6-social-button'
@@ -9,7 +9,7 @@ import {SocialService} from 'ng6-social-button';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'Angular6-social-button';
+    title = 'ngx-social-button';
     shareObj = {};
 
     constructor(private socialAuthService: SocialService) {
